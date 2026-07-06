@@ -9,7 +9,7 @@
 | `COOKIE_VALUE`  | ✅必填 | Remenber_web cookie | Remenber_web cookie的值 |
 | `EMAIL`         | ✅必填 | HidenCloud 邮箱 | xxx@gmail.com |
 | `PASSWORD`      | ✅必填 | HidenCloud 密码 | xxxxxxxx      |
-| `NODE_LINK`     | ❌可选 | 代理节点地址，支持多种协议 | vless:// vmess:// trojan:// hysteria2:// anytls:// tuic:// sokcs5:// |
+| `NODE_LINK`     | ❌可选 | 代理节点地址，支持多种协议 | vless:// vmess:// trojan:// hysteria2:// anytls:// tuic:// |
 | `TG_BOT_TOKEN`  | ❌可选 | Telegram Bot Token | `123456:ABC-DEF12l-zyx57W2v1u` |
 | `TG_CHAT_ID`    | ❌可选 | Telegram Chat ID | `123456789` |
 
