@@ -353,24 +353,26 @@ def main():
             # 执行续费
             renew_result = renew_service(page)
 
+            new_due = old_due
             if renew_result == "NOT_TIME":
                 log("⏳ 未到续期时间，目前无法续期")
                 status = "⏳ 未到续期时间"
-                send_telegram_notification(status, old_due, new_due)
-                sys.exit(0)
             elif renew_result is False:
                 log("❌ 续费失败，脚本退出。")
                 status = "❌ 续期失败"
-                send_telegram_notification(status, old_due, new_due)
-                sys.exit(1)
             else:  # renew_result is True
-                # 获取新到期时间
                 new_due = get_due_date(page)
                 log(f"📆 续费后到期时间：{new_due}")
                 status = "✅ 续期成功"
-                # 发送 Telegram 通知
-                send_telegram_notification(status, old_due, new_due)
-                    
+
+            # 发送 Telegram 通知
+            send_telegram_notification(status, old_due, new_due)
+
+            if renew_result == "NOT_TIME":
+                sys.exit(0)
+            elif renew_result is False:
+                sys.exit(1)
+            else:
                 sys.exit(0)
         except Exception as e:
             log(f"❌ 浏览器启动出错: {e}")
